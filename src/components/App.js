@@ -4,16 +4,8 @@ import phoneItems from './phones-items';
 
 function App() {
   return (
-    <div>
-      <button onClick={switchOperator}>Мегафон</button>
-
-      <PhoneList phoneItemsList={phoneItems}/>
-    </div>
+    <PhoneList phoneItemsList={phoneItems}/>
   );
-}
-
-function switchOperator() {
-  console.log('Сменить оператора!');
 }
 
 export default App;
