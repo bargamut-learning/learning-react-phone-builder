@@ -11,11 +11,20 @@ class PhoneList extends Component {
     this.state = {
       isOpen: true
     };
+
+    this.handleClick = handleClick.bind(this);
   }
 
   // Experimental feature
   // state = {
   //   isOpen: true
+  // };
+  // 
+  // handleClick = () => {
+  //   console.log('Сменить оператора!');
+  //   this.setState({
+  //     isOpen: !this.state.isOpen
+  //   });
   // };
 
   render() {
@@ -27,12 +36,15 @@ class PhoneList extends Component {
         </ul>
       )
       : '';
+    let btnCaption = this.state.isOpen ? 'Скрыть' : 'Показать';
 
     return (
       <div>
         <h1>Номера телефонов</h1>
 
-        <button onClick={handleClick}>Скрыть</button>
+        <button onClick={this.handleClick}>
+          {btnCaption}
+        </button>
   
         {body}
       </div>
@@ -61,6 +73,10 @@ class PhoneList extends Component {
 
 function handleClick() {
   console.log('Сменить оператора!');
+
+  this.setState({
+    isOpen: !this.state.isOpen
+  });
 }
 
 export default PhoneList;
