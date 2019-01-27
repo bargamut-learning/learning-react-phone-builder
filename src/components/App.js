@@ -1,6 +1,6 @@
 import React from 'react';
 import PhoneList from './PhoneList';
-import phoneItems from './phones-items';
+import phoneItems from '../data-test/phones-items';
 
 function App() {
   return (
