@@ -13,7 +13,9 @@
   "author": "Paul <Bargamut> Petrov",
   "license": "MIT",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.2.1"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

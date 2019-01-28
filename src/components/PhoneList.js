@@ -9,7 +9,7 @@ class PhoneList extends Component {
     super(props);
 
     this.state = {
-      isOpen: true
+        isOpen: true
     };
 
     this.handleClick = handleClick.bind(this);
@@ -29,20 +29,25 @@ class PhoneList extends Component {
 
   render() {
     const {phoneItemsList} = this.props;
+    const phoneElems = phoneItemsList.map((phoneItem) => {
+      return <PhoneItem phoneItem={phoneItem} key={phoneItem.id}/>;
+    });
     const body = this.state.isOpen
       ? (
         <ul>
-          <PhoneItem phoneItem={phoneItemsList[0]}/>
+          {phoneElems}
         </ul>
       )
       : '';
     let btnCaption = this.state.isOpen ? 'Скрыть' : 'Показать';
 
     return (
-      <div>
-        <h1>Номера телефонов</h1>
+      <div className="container">
+        <div className="jumbotron">
+          <h1 className="display-3">Номера телефонов</h1>
+        </div>
 
-        <button onClick={this.handleClick}>
+        <button className="btn btn-primary btn-lg" onClick={this.handleClick}>
           {btnCaption}
         </button>
   
