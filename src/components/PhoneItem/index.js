@@ -15,11 +15,18 @@ class PhoneItem extends Component {
 
   componentDidMount() { console.log('---', 'Mounting'); }
 
+  // Только если изменяется кто-то из родителей и могли поменяться props
   componentWillReceiveProps(nextProps) {
+    console.log('---', 'Will recieve props');
     if (nextProps.defaultOpen !== this.props.defaultOpen)
       this.setState({
         isOpen: nextProps.defaultOpen
       });
+  }
+
+  // Изменится вне зависимости от того, внутри компонента изменения или у родителя
+  componentWillUpdate() {
+    console.log('---', 'Will update');
   }
 
   render() {
