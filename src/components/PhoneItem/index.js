@@ -1,19 +1,32 @@
 import React, { Component } from 'react';
 import './style.css';
 
+// If need to watch everything changes, use PureComponent
+// import React, { PureComponent } from 'react';
+// class PhoneItem extends PureComponent {
 class PhoneItem extends Component {
   constructor (props) {
     super(props);
 
     // Инициализация состояния
     this.state = {
-      isOpen: props.defaultOpen
+      isOpen: props.defaultOpen,
+      count: 0
     };
 
     this.handleClick = handleClick.bind(this);
+    this.incrementCounter = incrementCounter.bind(this);
   }
 
-  componentDidMount() { console.log('---', 'Mounting'); }
+  // Must be commented if use PureComponent
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.state.isOpen !== nextState.isOpen ||
+      this.state.count !== nextState.count
+    );
+  }
+
+  componentWillMount() { console.log('---', 'Mounting'); }
 
   // Только если изменяется кто-то из родителей и могли поменяться props
   componentWillReceiveProps(nextProps) {
@@ -40,12 +53,14 @@ class PhoneItem extends Component {
 
     return (
       <li className="phone-list__item card mx-auto" style={style}>
-        <div className="card-header">
+        <div className="card-header" onClick={this.incrementCounter}>
           <button className="btn btn-primary btn-lg float-right" onClick={this.handleClick}>
             {btnCaption}
           </button>
 
           <h3>{phoneItem.title}</h3>
+
+          <span>Clicked: {this.state.count}</span>
         </div>
 
         {body}
@@ -55,10 +70,16 @@ class PhoneItem extends Component {
 }
 
 function handleClick() {
-  console.log('Сменить оператора!');
-
   this.setState({
     isOpen: !this.state.isOpen
+  });
+}
+
+function incrementCounter() {
+console.log(this.state);
+
+  this.setState({
+    count: this.state.count + 1
   });
 }
 
