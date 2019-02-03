@@ -10,36 +10,40 @@ import './style.css';
  * @extends {PureComponent}
  */
 class PhoneList extends PureComponent {
-  state = {
-    openItemId : null
-  };
+	constructor(props) {
+		super(props);
 
-  render() {
-    const phoneElems = this.props.phoneItemsList.map((phoneItem, i) => {
-      return (
-        <li
-          key={phoneItem.id}
-          className="phone-list__item"
-        >
-          <PhoneItem
-            phoneItem={phoneItem}
-            isOpen = {this.state.openItemId === phoneItem.id}
-            onBtnClick={this.openItem.bind(this, phoneItem.id)}
-          />
-        </li>
-      );
-    });
+		this.state = {
+			openItemId : null
+		};
+	}
 
-    return (
-      <ul>
-        {phoneElems}
-      </ul>
-    );
-  }
+	render() {
+		const phoneElems = this.props.phoneItemsList.map((phoneItem) => {
+			return (
+				<li
+					key={phoneItem.id}
+					className="phone-list__item"
+				>
+					<PhoneItem
+						phoneItem={phoneItem}
+						isOpen = {this.state.openItemId === phoneItem.id}
+						onBtnClick={this.openItem.bind(this, phoneItem.id)}
+					/>
+				</li>
+			);
+		});
 
-  openItem = openItemId => this.setState({
-    openItemId: this.state.openItemId === openItemId ? null : openItemId
-  });
+		return (
+			<ul>
+				{phoneElems}
+			</ul>
+		);
+	}
+
+	openItem = openItemId => this.setState({
+		openItemId: this.state.openItemId === openItemId ? null : openItemId
+	});
 }
 
 export default PhoneList;

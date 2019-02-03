@@ -11,32 +11,32 @@ import 'bootstrap/dist/css/bootstrap.css';
  * @extends {Component}
  */
 class App extends Component {
-  constructor(props) {
-    super(props);
+	constructor(props) {
+		super(props);
 
-    // Инициализация состояния
-    this.state = {
-      reverted : false
-    };
-  }
+		// Инициализация состояния
+		this.state = {
+			reverted : false
+		};
+	}
 
-  render() {
-    return (
-      <div className="container">
-        <div className="jumbotron">
-          <button className="btn btn-secondary float-right" onClick={this.revertList}>Revert</button>
-          <span>{this.state.reverted ? 'reverted' : 'normal'}</span>
+	render() {
+		return (
+			<div className="container">
+				<div className="jumbotron">
+					<button className="btn btn-secondary float-right" onClick={this.revertList}>Revert</button>
+					<span>{this.state.reverted ? 'reverted' : 'normal'}</span>
 
-          <h1 className="display-3">Номера телефонов</h1>
-        </div>
+					<h1 className="display-3">Номера телефонов</h1>
+				</div>
 
-        {/* Don't change anything by link! Only copy of datas! */}
-        <PhoneList phoneItemsList = {this.state.reverted ? phoneItems.slice().reverse() : phoneItems}/>
-      </div>
-    );
-  }
+				{/* Don't change anything by link! Only copy of datas! */}
+				<PhoneList phoneItemsList = {this.state.reverted ? phoneItems.slice().reverse() : phoneItems}/>
+			</div>
+		);
+	}
 
-  revertList = () => this.setState({ reverted: !this.state.reverted });
+	revertList = () => this.setState({ reverted: !this.state.reverted });
 }
 
 export default App;
