@@ -3,7 +3,11 @@ import PhoneItem from '../PhoneItem';
 import './style.css';
 
 /**
- * Component with state
+ * @description Component with state
+ * @author Paul "Bargamut" Petrov
+ * @date 2019-02-04
+ * @class PhoneList
+ * @extends {PureComponent}
  */
 class PhoneList extends PureComponent {
   state = {

@@ -3,6 +3,13 @@ import PhoneList from './PhoneList';
 import phoneItems from '../data-test/phones-items';
 import 'bootstrap/dist/css/bootstrap.css';
 
+/**
+ * @description Application component
+ * @author Paul "Bargamut" Petrov
+ * @date 2019-02-04
+ * @class App
+ * @extends {Component}
+ */
 class App extends Component {
   constructor(props) {
     super(props);

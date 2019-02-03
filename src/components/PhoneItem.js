@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
 
-// If need to watch everything changes, use PureComponent
-// import React, { PureComponent } from 'react';
-// class PhoneItem extends PureComponent {
+/**
+ * @description PhoneItem component
+ * @author Paul "Bargamut" Petrov
+ * @date 2019-02-04
+ * @class PhoneItem
+ * @extends {Component}
+ */
 class PhoneItem extends Component {
+  // If need to watch everything changes, use PureComponent
+  // import React, { PureComponent } from 'react';
+  // class PhoneItem extends PureComponent {
   constructor (props) {
     super(props);
 
@@ -66,6 +73,11 @@ class PhoneItem extends Component {
   }
 }
 
+/**
+ * @description Increment counter of clicks on item
+ * @author Paul "Bargamut" Petrov
+ * @date 2019-02-04
+ */
 function incrementCounter() {
   console.log(this.state);
 
