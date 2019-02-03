@@ -33,7 +33,9 @@ class PhoneList extends PureComponent {
     );
   }
 
-  openItem = openItemId => this.setState({ openItemId });
+  openItem = openItemId => this.setState({
+    openItemId: this.state.openItemId === openItemId ? null : openItemId
+  });
 }
 
 export default PhoneList;
