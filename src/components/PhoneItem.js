@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
 // If need to watch everything changes, use PureComponent
 // import React, { PureComponent } from 'react';
 // class PhoneItem extends PureComponent {
-class PhoneItem extends PureComponent {
+class PhoneItem extends Component {
   constructor (props) {
     super(props);
 
@@ -15,13 +15,13 @@ class PhoneItem extends PureComponent {
     this.incrementCounter = incrementCounter.bind(this);
   }
 
-  // // Must be commented if use PureComponent
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   return (
-  //     this.state.isOpen !== nextState.isOpen ||
-  //     this.state.count !== nextState.count
-  //   );
-  // }
+  // Must be commented if use PureComponent
+  shouldComponentUpdate(nextProps, nextState) {
+    return (
+      this.props.isOpen !== nextProps.isOpen ||
+      this.state.count !== nextState.count
+    );
+  }
 
   componentWillMount() { console.log('---', 'Mounting'); }
 
