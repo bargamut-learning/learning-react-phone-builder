@@ -23,7 +23,8 @@ class App extends Component {
           <h1 className="display-3">Номера телефонов</h1>
         </div>
 
-        <PhoneList phoneItemsList = {this.state.reverted ? phoneItems.reverse() : phoneItems}/>
+        {/* Don't change anything by link! Only copy of datas! */}
+        <PhoneList phoneItemsList = {this.state.reverted ? phoneItems.slice().reverse() : phoneItems}/>
       </div>
     );
   }
